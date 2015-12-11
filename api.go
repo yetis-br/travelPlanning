@@ -9,12 +9,19 @@ import (
 	"github.com/ant0ine/go-json-rest/rest"
 )
 
-var jwtMiddleware *jwt.JWTMiddleware
+var (
+	//JWT middleware to manage token authentication
+	JWT *jwt.JWTMiddleware
+	//SecretKey default secret key to create tokens
+	SecretKey = []byte("secret key")
+	//Realm default to use in request and response header
+	Realm = "jwt auth"
+)
 
 func main() {
-	jwtMiddleware = &jwt.JWTMiddleware{
-		Key:        []byte("secret key"),
-		Realm:      "jwt auth",
+	JWT = &jwt.JWTMiddleware{
+		Key:        SecretKey,
+		Realm:      Realm,
 		Timeout:    time.Hour,
 		MaxRefresh: time.Hour * 24,
 		Authenticator: func(userId string, password string) bool {
@@ -25,9 +32,9 @@ func main() {
 	api.Use(rest.DefaultDevStack...)
 	api.Use(&rest.IfMiddleware{
 		Condition: func(request *rest.Request) bool {
-			return request.URL.Path != "/login"
+			return CheckCondition(request)
 		},
-		IfTrue: jwtMiddleware,
+		IfTrue: JWT,
 	})
 
 	router := NewRouter()
