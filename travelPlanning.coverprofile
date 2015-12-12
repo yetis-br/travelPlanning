@@ -1,0 +1,11 @@
+mode: atomic
+github.com/yetis-br/travelPlanning/api.go:21.13,27.60 1 0
+github.com/yetis-br/travelPlanning/api.go:31.2,34.47 3 0
+github.com/yetis-br/travelPlanning/api.go:40.2,43.60 3 0
+github.com/yetis-br/travelPlanning/api.go:27.60,29.4 1 0
+github.com/yetis-br/travelPlanning/api.go:34.47,36.4 1 0
+github.com/yetis-br/travelPlanning/auth.go:6.56,8.2 1 1
+github.com/yetis-br/travelPlanning/auth.go:11.49,13.2 1 0
+github.com/yetis-br/travelPlanning/routes.go:11.27,23.16 3 0
+github.com/yetis-br/travelPlanning/routes.go:27.2,27.15 1 0
+github.com/yetis-br/travelPlanning/routes.go:23.16,25.3 1 0
