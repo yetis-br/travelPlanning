@@ -10,8 +10,6 @@ import (
 )
 
 var (
-	//JWT middleware to manage token authentication
-	JWT *jwt.JWTMiddleware
 	//SecretKey default secret key to create tokens
 	SecretKey = []byte("secret key")
 	//Realm default to use in request and response header
@@ -19,7 +17,7 @@ var (
 )
 
 func main() {
-	JWT = &jwt.JWTMiddleware{
+	jwt := &jwt.JWTMiddleware{
 		Key:        SecretKey,
 		Realm:      Realm,
 		Timeout:    time.Hour,
@@ -34,10 +32,10 @@ func main() {
 		Condition: func(request *rest.Request) bool {
 			return CheckCondition(request)
 		},
-		IfTrue: JWT,
+		IfTrue: jwt,
 	})
 
-	router := NewRouter()
+	router := NewRouter(jwt)
 	api.SetApp(router)
 
 	log.Fatal(http.ListenAndServe(":8080", api.MakeHandler()))

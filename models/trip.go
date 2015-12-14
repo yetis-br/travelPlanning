@@ -10,8 +10,8 @@ import (
 
 // Trip define an object at the API
 type Trip struct {
-	ID    string
-	Title string
+	ID    string `json:"id"`
+	Title string `json:"title"`
 	/*
 		UserID    string
 		StartDate time.Time

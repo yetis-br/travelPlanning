@@ -1,4 +1,4 @@
-package main_test
+package main
 
 import (
 	"encoding/json"
@@ -11,13 +11,13 @@ import (
 	"github.com/ant0ine/go-json-rest/rest/test"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
-	"github.com/yetis-br/travelPlanning"
 
 	"testing"
 )
 
 var Response *httptest.ResponseRecorder
 var Request *http.Request
+var loginCredentials = map[string]string{"username": "admin", "password": "admin"}
 var tst *testing.T
 
 func TestTravelPlanning(t *testing.T) {
@@ -29,58 +29,37 @@ type resultToken struct {
 	TokenString string `json:"token"`
 }
 
-func Login(loginCreds map[string]string) string {
-	// the middleware to test
-	jwtMiddleware := &jwt.JWTMiddleware{
-		Key:        main.SecretKey,
-		Realm:      main.Realm,
-		Timeout:    time.Hour,
-		MaxRefresh: time.Hour * 24,
-		Authenticator: func(userId string, password string) bool {
-			return main.Authenticator(userId, password)
-		},
-	}
-	// api for login purpose
-	api := rest.NewApi()
-	api.Use(&rest.IfMiddleware{
-		Condition: func(request *rest.Request) bool {
-			return request.URL.Path != "/login"
-		},
-		IfTrue: jwtMiddleware,
-	})
-	api.SetApp(rest.AppSimple(jwtMiddleware.LoginHandler))
-
-	Request = test.MakeSimpleRequest("POST", "/login", loginCreds)
-	recorded := test.RunRequest(tst, api.MakeHandler(), Request)
-	Response = recorded.Recorder
+func Login() string {
+	APIRequest("/login", "POST", loginCredentials, "")
 
 	token := resultToken{}
-	json.Unmarshal(recorded.Recorder.Body.Bytes(), &token)
+	json.Unmarshal(Response.Body.Bytes(), &token)
 
 	return token.TokenString
 }
 
-func APIRequest(url string, handlerFunc rest.HandlerFunc, method string, json interface{}, token string) {
+func APIRequest(url string, method string, model interface{}, token string) {
 	jwtMiddleware := &jwt.JWTMiddleware{
-		Key:        main.SecretKey,
-		Realm:      main.Realm,
+		Key:        SecretKey,
+		Realm:      Realm,
 		Timeout:    time.Hour,
 		MaxRefresh: time.Hour * 24,
 		Authenticator: func(userId string, password string) bool {
-			return main.Authenticator(userId, password)
+			return Authenticator(userId, password)
 		},
 	}
-	// api for login purpose
+
 	api := rest.NewApi()
 	api.Use(&rest.IfMiddleware{
 		Condition: func(request *rest.Request) bool {
-			return main.CheckCondition(request)
+			return CheckCondition(request)
 		},
 		IfTrue: jwtMiddleware,
 	})
-	api.SetApp(rest.AppSimple(handlerFunc))
 
-	Request = test.MakeSimpleRequest(method, url, json)
+	api.SetApp(NewRouter(jwtMiddleware))
+
+	Request = test.MakeSimpleRequest(method, url, model)
 	if token != "" {
 		Request.Header.Set("Authorization", "Bearer "+token)
 	}
