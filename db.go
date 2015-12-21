@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
-	"log"
 
+	log "github.com/Sirupsen/logrus"
 	r "github.com/dancannon/gorethink"
 )
 
@@ -18,34 +18,34 @@ func NewDBSession(database string) *r.Session {
 		log.Fatalln(err)
 		return nil
 	}
-	log.Printf("Connected to RethinkDB %s", GetKeyValue("database", "address"))
+	log.Infof("Connected to RethinkDB %s", GetKeyValue("database", "address"))
 
-	err = createDB(database, conn)
+	status, err := createDB(database, conn)
 	if err != nil {
-		log.Println(err)
+		log.Fatalln(err)
 	} else {
-		log.Printf("New database %s created", database)
+		log.Info(status)
 	}
 
 	tables := []string{"Trip"}
 	total, err := createTables(database, tables, conn)
 	if err != nil {
-		log.Println(err)
+		log.Fatalln(err)
 	} else {
-		log.Printf("%d new table(s) created", total)
+		log.Infof("%d new table(s) created", total)
 	}
 
 	return conn
 }
 
-func createDB(database string, conn *r.Session) error {
+func createDB(database string, conn *r.Session) (string, error) {
 	var response interface{}
 	res, _ := r.DBList().Contains(database).Run(conn)
 	res.One(&response)
 	if response == false {
-		return r.DBCreate(database).Exec(conn)
+		return fmt.Sprintf("New database %s created", database), r.DBCreate(database).Exec(conn)
 	}
-	return fmt.Errorf("Database %s already exists", database)
+	return fmt.Sprintf("Database %s already exists", database), nil
 }
 
 func createTables(database string, tables []string, conn *r.Session) (int, error) {

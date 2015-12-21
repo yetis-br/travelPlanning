@@ -1,10 +1,10 @@
 package main
 
 import (
-	"log"
 	"net/http"
 	"time"
 
+	log "github.com/Sirupsen/logrus"
 	"github.com/StephanDollberg/go-json-rest-middleware-jwt"
 	"github.com/ant0ine/go-json-rest/rest"
 )
@@ -18,9 +18,8 @@ var (
 
 func main() {
 	start := time.Now()
-	log.SetPrefix("[Travel Planning API] ")
-	log.Printf("Starting in %s mode", GetKeyValue("server", "mode"))
-	log.Printf("Listening on port: %s", GetKeyValue("server", "port"))
+	log.Infof("Starting in %s mode", GetKeyValue("server", "mode"))
+	log.Infof("Listening on port: %s", GetKeyValue("server", "port"))
 
 	jwt := &jwt.JWTMiddleware{
 		Key:        SecretKey,
@@ -44,7 +43,7 @@ func main() {
 	api.SetApp(router)
 
 	elapsed := time.Since(start)
-	log.Printf("Started in %fs", elapsed.Seconds())
+	log.Infof("Started in %fs", elapsed.Seconds())
 
-	log.Fatal(http.ListenAndServe(":"+GetKeyValue("server", "port"), api.MakeHandler()))
+	log.Fatalln(http.ListenAndServe(":"+GetKeyValue("server", "port"), api.MakeHandler()))
 }
