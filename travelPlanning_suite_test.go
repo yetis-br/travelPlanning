@@ -2,28 +2,49 @@ package main
 
 import (
 	"encoding/json"
+	"log"
 	"net/http"
 	"net/http/httptest"
 	"time"
 
+	"testing"
+
 	"github.com/StephanDollberg/go-json-rest-middleware-jwt"
 	"github.com/ant0ine/go-json-rest/rest"
 	"github.com/ant0ine/go-json-rest/rest/test"
+	r "github.com/dancannon/gorethink"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
-
-	"testing"
 )
 
-var Response *httptest.ResponseRecorder
-var Request *http.Request
-var loginCredentials = map[string]string{"username": "admin", "password": "admin"}
-var tst *testing.T
+const database = "travelPlanningTest"
+
+var (
+	Response         *httptest.ResponseRecorder
+	Request          *http.Request
+	testConn         *r.Session
+	tst              *testing.T
+	loginCredentials = map[string]string{"username": "admin", "password": "admin"}
+)
 
 func TestTravelPlanning(t *testing.T) {
 	RegisterFailHandler(Fail)
 	RunSpecs(t, "TravelPlanning Suite")
 }
+
+var _ = BeforeSuite(func() {
+	testConn = NewDBSession(database)
+})
+
+var _ = AfterSuite(func() {
+	resp, err := r.DBDrop(database).RunWrite(testConn)
+	if err != nil {
+		log.Print(err)
+	}
+
+	log.Printf("%d DB dropped, %d tables dropped", resp.DBsDropped, resp.TablesDropped)
+	testConn.Close()
+})
 
 type resultToken struct {
 	TokenString string `json:"token"`
@@ -57,7 +78,7 @@ func APIRequest(url string, method string, model interface{}, token string) {
 		IfTrue: jwtMiddleware,
 	})
 
-	api.SetApp(NewRouter(jwtMiddleware))
+	api.SetApp(NewRouter(jwtMiddleware, testConn))
 
 	Request = test.MakeSimpleRequest(method, url, model)
 	if token != "" {

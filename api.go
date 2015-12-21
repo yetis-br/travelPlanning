@@ -35,7 +35,9 @@ func main() {
 		IfTrue: jwt,
 	})
 
-	router := NewRouter(jwt)
+	session := NewDBSession("travelPlanning")
+
+	router := NewRouter(jwt, session)
 	api.SetApp(router)
 
 	log.Fatal(http.ListenAndServe(":8080", api.MakeHandler()))

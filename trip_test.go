@@ -1,6 +1,8 @@
 package main
 
 import (
+	"encoding/json"
+
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 	"github.com/yetis-br/travelPlanning/models"
@@ -9,6 +11,7 @@ import (
 var _ = Describe("Trip API", func() {
 
 	var token string = Login()
+	var id string
 
 	Describe("Working with Trips functionality", func() {
 		Context("When loading all trips without token", func() {
@@ -18,7 +21,7 @@ var _ = Describe("Trip API", func() {
 			})
 		})
 
-		Context("When loading all trips with token", func() {
+		Context("When fetching all trips with token", func() {
 			It("Return 200 Status and Empty", func() {
 				APIRequest("/trips", "GET", nil, token)
 				Expect(Response.Code).To(Equal(200))
@@ -30,15 +33,30 @@ var _ = Describe("Trip API", func() {
 		})
 
 		Context("When posting a new trip with token", func() {
-			trip := models.Trip{}
-			trip.Title = "Europa 2017"
+			tripInput := models.Trip{}
+			tripInput.Title = "Europa 2017"
 
 			It("Return 200 Status", func() {
-				APIRequest("/trips", "POST", trip, token)
+				APIRequest("/trips", "POST", tripInput, token)
 				Expect(Response.Code).To(Equal(200))
 			})
 			It("Return one record", func() {
-				Expect(Response.Body).To(MatchJSON(`{"id": "0", "title": "Europa 2017"}`))
+				tripOutput := models.Trip{}
+				json.Unmarshal(Response.Body.Bytes(), &tripOutput)
+				Expect(tripInput.Title).To(Equal(tripOutput.Title))
+				id = tripOutput.ID
+			})
+		})
+
+		Context("When fetching only one trip with token", func() {
+			It("Return 200 Status", func() {
+				APIRequest("/trips/"+id, "GET", nil, token)
+				Expect(Response.Code).To(Equal(200))
+			})
+			It("Return one record", func() {
+				tripOutput := models.Trip{}
+				json.Unmarshal(Response.Body.Bytes(), &tripOutput)
+				Expect("Europa 2017").To(Equal(tripOutput.Title))
 			})
 		})
 	})
