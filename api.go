@@ -17,6 +17,11 @@ var (
 )
 
 func main() {
+	start := time.Now()
+	log.SetPrefix("[Travel Planning API] ")
+	log.Printf("Starting in %s mode", GetKeyValue("server", "mode"))
+	log.Printf("Listening on port: %s", GetKeyValue("server", "port"))
+
 	jwt := &jwt.JWTMiddleware{
 		Key:        SecretKey,
 		Realm:      Realm,
@@ -35,10 +40,11 @@ func main() {
 		IfTrue: jwt,
 	})
 
-	session := NewDBSession("travelPlanning")
-
-	router := NewRouter(jwt, session)
+	router := NewRouter(jwt, NewDBSession("travelPlanning"))
 	api.SetApp(router)
 
-	log.Fatal(http.ListenAndServe(":8080", api.MakeHandler()))
+	elapsed := time.Since(start)
+	log.Printf("Started in %fs", elapsed.Seconds())
+
+	log.Fatal(http.ListenAndServe(":"+GetKeyValue("server", "port"), api.MakeHandler()))
 }

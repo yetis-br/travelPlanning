@@ -1,0 +1,71 @@
+2015-12-21T14:47:45.593672000 0.298921s notice: Recursively removing directory /Users/andreluzz/Documents/projects/go/src/github.com/yetis-br/travelPlanning/rethinkdb_data/tmp
+2015-12-21T14:47:45.595672000 0.300925s notice: Initializing directory /Users/andreluzz/Documents/projects/go/src/github.com/yetis-br/travelPlanning/rethinkdb_data
+2015-12-21T14:47:45.595764000 0.301012s info: Creating a default database for your convenience. (This is because you ran 'rethinkdb' without 'create', 'serve', or '--join', and the directory '/Users/andreluzz/Documents/projects/go/src/github.com/yetis-br/travelPlanning/rethinkdb_data' did not already exist or is empty.)
+2015-12-21T14:47:45.595792000 0.301040s notice: Running rethinkdb 2.2.1 (CLANG 4.2 (clang-425.0.28))...
+2015-12-21T14:47:45.614357000 0.319606s notice: Running on Darwin 15.0.0 x86_64
+2015-12-21T14:47:45.614402000 0.319650s notice: Loading data from directory /Users/andreluzz/Documents/projects/go/src/github.com/yetis-br/travelPlanning/rethinkdb_data
+2015-12-21T14:47:45.681650000 0.386898s info: Automatically using cache size of 2045 MB
+2015-12-21T14:47:45.682674000 0.387922s notice: Listening for intracluster connections on port 29015
+2015-12-21T14:47:45.684697000 0.389945s notice: Listening for client driver connections on port 28015
+2015-12-21T14:47:45.684802000 0.390050s notice: Listening for administrative HTTP connections on port 8080
+2015-12-21T14:47:45.684808000 0.390055s notice: Listening on addresses: 127.0.0.1, ::1
+2015-12-21T14:47:45.684811000 0.390059s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2015-12-21T14:47:45.684815000 0.390062s notice: Server ready, "Andres_MacBook_Pro_local_uk6" ce05b7ed-03cc-4247-ac8c-3e7846361003
+2015-12-21T14:48:29.648964000 44.355505s info: Table 955ca6d3-dbea-450b-acc5-c126a9a2e0ee: Added replica on this server.
+2015-12-21T14:48:30.684836000 45.391377s info: Table 955ca6d3-dbea-450b-acc5-c126a9a2e0ee: Starting a new Raft election for term 1.
+2015-12-21T14:48:30.696398000 45.402939s info: Table 955ca6d3-dbea-450b-acc5-c126a9a2e0ee: This server is Raft leader for term 1. Latest log index is 0.
+2015-12-21T15:54:00.228508000 3975.050190s notice: Removing file /Users/andreluzz/Documents/projects/go/src/github.com/yetis-br/travelPlanning/rethinkdb_data/955ca6d3-dbea-450b-acc5-c126a9a2e0ee
+2015-12-21T15:54:00.228515000 3975.050197s info: Table 955ca6d3-dbea-450b-acc5-c126a9a2e0ee: Deleted the table.
+2015-12-21T16:20:54.707913000 4970.980832s info: Table 1aa0ce71-e650-45dd-a2f5-60a3aadcc1a4: Added replica on this server.
+2015-12-21T16:20:56.611519000 4972.884491s info: Table 1aa0ce71-e650-45dd-a2f5-60a3aadcc1a4: Starting a new Raft election for term 1.
+2015-12-21T16:20:56.622918000 4972.895890s info: Table 1aa0ce71-e650-45dd-a2f5-60a3aadcc1a4: This server is Raft leader for term 1. Latest log index is 0.
+2015-12-21T16:40:18.647113000 6134.954443s notice: Removing file /Users/andreluzz/Documents/projects/go/src/github.com/yetis-br/travelPlanning/rethinkdb_data/1aa0ce71-e650-45dd-a2f5-60a3aadcc1a4
+2015-12-21T16:40:18.647120000 6134.954450s info: Table 1aa0ce71-e650-45dd-a2f5-60a3aadcc1a4: Deleted the table.
+2015-12-21T16:40:24.870920000 6141.178465s info: Table 805dced3-7a1e-44b8-84fb-3a7d44adeb18: Added replica on this server.
+2015-12-21T16:40:26.586775000 6142.894374s info: Table 805dced3-7a1e-44b8-84fb-3a7d44adeb18: Starting a new Raft election for term 1.
+2015-12-21T16:40:26.598518000 6142.906117s info: Table 805dced3-7a1e-44b8-84fb-3a7d44adeb18: This server is Raft leader for term 1. Latest log index is 0.
+2015-12-21T16:42:17.104005000 6253.414825s info: Table 51325f0e-81cd-4a21-8a53-7643bbfa0f8f: Added replica on this server.
+2015-12-21T16:42:18.573948000 6254.884821s info: Table 51325f0e-81cd-4a21-8a53-7643bbfa0f8f: Starting a new Raft election for term 1.
+2015-12-21T16:42:18.584921000 6254.895795s info: Table 51325f0e-81cd-4a21-8a53-7643bbfa0f8f: This server is Raft leader for term 1. Latest log index is 0.
+2015-12-21T16:42:19.330301000 6255.641229s info: Table a19c6dab-5941-4cdb-9b44-457bd7214964: Added replica on this server.
+2015-12-21T16:42:21.211922000 6257.522902s info: Table a19c6dab-5941-4cdb-9b44-457bd7214964: Starting a new Raft election for term 1.
+2015-12-21T16:42:21.223685000 6257.534665s info: Table a19c6dab-5941-4cdb-9b44-457bd7214964: This server is Raft leader for term 1. Latest log index is 0.
+2015-12-21T16:43:10.193036000 6306.505466s notice: Removing file /Users/andreluzz/Documents/projects/go/src/github.com/yetis-br/travelPlanning/rethinkdb_data/51325f0e-81cd-4a21-8a53-7643bbfa0f8f
+2015-12-21T16:43:10.193043000 6306.505473s info: Table 51325f0e-81cd-4a21-8a53-7643bbfa0f8f: Deleted the table.
+2015-12-21T16:43:10.209605000 6306.522035s notice: Removing file /Users/andreluzz/Documents/projects/go/src/github.com/yetis-br/travelPlanning/rethinkdb_data/805dced3-7a1e-44b8-84fb-3a7d44adeb18
+2015-12-21T16:43:10.209616000 6306.522046s info: Table 805dced3-7a1e-44b8-84fb-3a7d44adeb18: Deleted the table.
+2015-12-21T16:43:10.225045000 6306.537475s notice: Removing file /Users/andreluzz/Documents/projects/go/src/github.com/yetis-br/travelPlanning/rethinkdb_data/a19c6dab-5941-4cdb-9b44-457bd7214964
+2015-12-21T16:43:10.225061000 6306.537491s info: Table a19c6dab-5941-4cdb-9b44-457bd7214964: Deleted the table.
+2015-12-21T16:48:00.032071000 6596.353031s info: Table 154e03bc-5793-48a4-9957-201af8f660e7: Added replica on this server.
+2015-12-21T16:48:01.398862000 6597.719875s info: Table 154e03bc-5793-48a4-9957-201af8f660e7: Starting a new Raft election for term 1.
+2015-12-21T16:48:01.463565000 6597.784578s info: Table 154e03bc-5793-48a4-9957-201af8f660e7: This server is Raft leader for term 1. Latest log index is 0.
+2015-12-21T16:51:38.975879000 6815.303326s notice: Removing file /Users/andreluzz/Documents/projects/go/src/github.com/yetis-br/travelPlanning/rethinkdb_data/154e03bc-5793-48a4-9957-201af8f660e7
+2015-12-21T16:51:38.975887000 6815.303334s info: Table 154e03bc-5793-48a4-9957-201af8f660e7: Deleted the table.
+2015-12-21T16:51:50.779551000 6827.107374s info: Table 0f123b9f-e45e-4178-90fa-04b700b3d8f7: Added replica on this server.
+2015-12-21T16:51:52.364851000 6828.692674s info: Table 0f123b9f-e45e-4178-90fa-04b700b3d8f7: Starting a new Raft election for term 1.
+2015-12-21T16:51:52.376840000 6828.704664s info: Table 0f123b9f-e45e-4178-90fa-04b700b3d8f7: This server is Raft leader for term 1. Latest log index is 0.
+2015-12-21T16:57:13.296820000 7149.634128s info: Table e09ba882-81dc-4703-8e36-506d7db15779: Added replica on this server.
+2015-12-21T16:57:15.290863000 7151.628223s info: Table e09ba882-81dc-4703-8e36-506d7db15779: Starting a new Raft election for term 1.
+2015-12-21T16:57:15.301887000 7151.639247s info: Table e09ba882-81dc-4703-8e36-506d7db15779: This server is Raft leader for term 1. Latest log index is 0.
+2015-12-21T16:57:16.574840000 7152.912254s notice: Removing file /Users/andreluzz/Documents/projects/go/src/github.com/yetis-br/travelPlanning/rethinkdb_data/e09ba882-81dc-4703-8e36-506d7db15779
+2015-12-21T16:57:16.574849000 7152.912262s info: Table e09ba882-81dc-4703-8e36-506d7db15779: Deleted the table.
+2015-12-21T16:58:03.094670000 7199.433476s info: Table 83c17903-0fda-4ddc-aa16-718561139883: Added replica on this server.
+2015-12-21T16:58:04.783795000 7201.122655s info: Table 83c17903-0fda-4ddc-aa16-718561139883: Starting a new Raft election for term 1.
+2015-12-21T16:58:04.794501000 7201.133361s info: Table 83c17903-0fda-4ddc-aa16-718561139883: This server is Raft leader for term 1. Latest log index is 0.
+2015-12-21T16:58:05.227278000 7201.566138s notice: Removing file /Users/andreluzz/Documents/projects/go/src/github.com/yetis-br/travelPlanning/rethinkdb_data/83c17903-0fda-4ddc-aa16-718561139883
+2015-12-21T16:58:05.227287000 7201.566147s info: Table 83c17903-0fda-4ddc-aa16-718561139883: Deleted the table.
+2015-12-21T16:59:31.439503000 7287.780881s info: Table 56ebba4a-8657-427f-b69f-48145ea82ff8: Added replica on this server.
+2015-12-21T16:59:32.645267000 7288.986697s info: Table 56ebba4a-8657-427f-b69f-48145ea82ff8: Starting a new Raft election for term 1.
+2015-12-21T16:59:32.655536000 7288.996967s info: Table 56ebba4a-8657-427f-b69f-48145ea82ff8: This server is Raft leader for term 1. Latest log index is 0.
+2015-12-21T16:59:33.570821000 7289.912306s notice: Removing file /Users/andreluzz/Documents/projects/go/src/github.com/yetis-br/travelPlanning/rethinkdb_data/56ebba4a-8657-427f-b69f-48145ea82ff8
+2015-12-21T16:59:33.570830000 7289.912314s info: Table 56ebba4a-8657-427f-b69f-48145ea82ff8: Deleted the table.
+2015-12-21T17:00:29.091636000 7345.434726s info: Table 576e6968-bdcb-4be6-9b6f-44fa9c892663: Added replica on this server.
+2015-12-21T17:00:30.916589000 7347.259733s info: Table 576e6968-bdcb-4be6-9b6f-44fa9c892663: Starting a new Raft election for term 1.
+2015-12-21T17:00:30.926350000 7347.269494s info: Table 576e6968-bdcb-4be6-9b6f-44fa9c892663: This server is Raft leader for term 1. Latest log index is 0.
+2015-12-21T17:00:32.367059000 7348.710256s notice: Removing file /Users/andreluzz/Documents/projects/go/src/github.com/yetis-br/travelPlanning/rethinkdb_data/576e6968-bdcb-4be6-9b6f-44fa9c892663
+2015-12-21T17:00:32.367069000 7348.710266s info: Table 576e6968-bdcb-4be6-9b6f-44fa9c892663: Deleted the table.
+2015-12-21T17:01:01.927323000 7378.271377s info: Table f50f7b74-5778-4c2b-8724-e92858bbbd02: Added replica on this server.
+2015-12-21T17:01:03.862003000 7380.206110s info: Table f50f7b74-5778-4c2b-8724-e92858bbbd02: Starting a new Raft election for term 1.
+2015-12-21T17:01:03.873939000 7380.218047s info: Table f50f7b74-5778-4c2b-8724-e92858bbbd02: This server is Raft leader for term 1. Latest log index is 0.
+2015-12-21T17:01:05.198191000 7381.542352s notice: Removing file /Users/andreluzz/Documents/projects/go/src/github.com/yetis-br/travelPlanning/rethinkdb_data/f50f7b74-5778-4c2b-8724-e92858bbbd02
+2015-12-21T17:01:05.198200000 7381.542360s info: Table f50f7b74-5778-4c2b-8724-e92858bbbd02: Deleted the table.

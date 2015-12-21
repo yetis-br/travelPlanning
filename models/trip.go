@@ -23,11 +23,13 @@ type Trips struct {
 	Conn *rethink.Session
 }
 
+const tableName = "Trip"
+
 //GetAllTrips returns all Trips for the loged user
 func (t *Trips) GetAllTrips(w rest.ResponseWriter, r *rest.Request) {
 	trips := []Trip{}
 	// Fetch all the items from the database
-	res, err := rethink.Table("Trip").OrderBy(rethink.Asc("Created")).Run(t.Conn)
+	res, err := rethink.Table(tableName).OrderBy(rethink.Asc("Created")).Run(t.Conn)
 	if err != nil {
 		rest.Error(w, err.Error(), http.StatusInternalServerError)
 		return
@@ -46,7 +48,7 @@ func (t *Trips) GetAllTrips(w rest.ResponseWriter, r *rest.Request) {
 func (t *Trips) GetTrip(w rest.ResponseWriter, r *rest.Request) {
 	id := r.PathParam("id")
 
-	res, err := rethink.Table("Trip").Get(id).Run(t.Conn)
+	res, err := rethink.Table(tableName).Get(id).Run(t.Conn)
 	if err != nil {
 		rest.Error(w, err.Error(), http.StatusInternalServerError)
 		return
@@ -66,7 +68,7 @@ func (t *Trips) PostTrip(w rest.ResponseWriter, r *rest.Request) {
 	trip := Trip{}
 	err := r.DecodeJsonPayload(&trip)
 	trip.Created = time.Now()
-	result, err := rethink.Table("Trip").Insert(trip).RunWrite(t.Conn)
+	result, err := rethink.Table(tableName).Insert(trip).RunWrite(t.Conn)
 	if err != nil {
 		rest.Error(w, err.Error(), http.StatusInternalServerError)
 		return

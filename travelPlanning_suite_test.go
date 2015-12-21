@@ -37,12 +37,10 @@ var _ = BeforeSuite(func() {
 })
 
 var _ = AfterSuite(func() {
-	resp, err := r.DBDrop(database).RunWrite(testConn)
+	_, err := r.DBDrop(database).RunWrite(testConn)
 	if err != nil {
 		log.Print(err)
 	}
-
-	log.Printf("%d DB dropped, %d tables dropped", resp.DBsDropped, resp.TablesDropped)
 	testConn.Close()
 })
 

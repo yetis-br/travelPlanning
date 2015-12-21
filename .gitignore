@@ -22,3 +22,10 @@ _testmain.go
 *.exe
 *.test
 *.prof
+*.sh
+
+# Arquivo de configuração individual
+config.ini
+
+# Remover o binario criando no mac os a partir do go build
+travelPlanning
