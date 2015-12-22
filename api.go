@@ -31,7 +31,12 @@ func main() {
 		}}
 
 	api := rest.NewApi()
-	api.Use(rest.DefaultDevStack...)
+	api.Use(&AccessLogTPApiMiddleware{
+		Format: DefaultLogFormat,
+	})
+	api.Use(rest.DefaultCommonStack...)
+	api.Use(&rest.ContentTypeCheckerMiddleware{})
+	api.Use(&rest.JsonIndentMiddleware{})
 	api.Use(&rest.IfMiddleware{
 		Condition: func(request *rest.Request) bool {
 			return CheckCondition(request)

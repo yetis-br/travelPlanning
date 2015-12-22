@@ -69,3 +69,43 @@
 2015-12-21T17:01:03.873939000 7380.218047s info: Table f50f7b74-5778-4c2b-8724-e92858bbbd02: This server is Raft leader for term 1. Latest log index is 0.
 2015-12-21T17:01:05.198191000 7381.542352s notice: Removing file /Users/andreluzz/Documents/projects/go/src/github.com/yetis-br/travelPlanning/rethinkdb_data/f50f7b74-5778-4c2b-8724-e92858bbbd02
 2015-12-21T17:01:05.198200000 7381.542360s info: Table f50f7b74-5778-4c2b-8724-e92858bbbd02: Deleted the table.
+2015-12-21T19:47:53.315490000 11115.116762s notice: Server got SIGINT from pid 2305, uid 501; shutting down...
+2015-12-21T19:47:53.315646000 11115.116918s notice: Shutting down client connections...
+2015-12-21T19:47:53.315742000 11115.117014s notice: All client connections closed.
+2015-12-21T19:47:53.315752000 11115.117024s notice: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+2015-12-21T19:47:53.319379000 11115.120652s notice: Storage engine shut down.
+2015-12-22T17:38:09.874012000 0.004924s notice: Running rethinkdb 2.2.1 (CLANG 4.2 (clang-425.0.28))...
+2015-12-22T17:38:09.877080000 0.007990s notice: Running on Darwin 15.0.0 x86_64
+2015-12-22T17:38:09.877117000 0.008027s notice: Loading data from directory /Users/andreluzz/Documents/projects/go/src/github.com/yetis-br/travelPlanning/rethinkdb_data
+2015-12-22T17:38:09.896968000 0.027878s info: Automatically using cache size of 4840 MB
+2015-12-22T17:38:09.897910000 0.028820s notice: Listening for intracluster connections on port 29015
+2015-12-22T17:38:09.912119000 0.043029s notice: Listening for client driver connections on port 28015
+2015-12-22T17:38:09.912242000 0.043152s notice: Listening for administrative HTTP connections on port 8080
+2015-12-22T17:38:09.912244000 0.043154s notice: Listening on addresses: 127.0.0.1, ::1
+2015-12-22T17:38:09.912245000 0.043155s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2015-12-22T17:38:09.912246000 0.043155s notice: Server ready, "Andres_MacBook_Pro_local_uk6" ce05b7ed-03cc-4247-ac8c-3e7846361003
+2015-12-22T17:38:11.478792000 1.609769s info: Table 0f123b9f-e45e-4178-90fa-04b700b3d8f7: Starting a new Raft election for term 2.
+2015-12-22T17:38:11.490120000 1.621097s info: Table 0f123b9f-e45e-4178-90fa-04b700b3d8f7: This server is Raft leader for term 2. Latest log index is 3.
+2015-12-22T17:38:13.386698000 3.517742s notice: A newer version of the RethinkDB server is available: 2.2.2. You can read the changelog at <https://github.com/rethinkdb/rethinkdb/releases>.
+2015-12-22T17:59:35.806845000 1285.985441s notice: Removing file /Users/andreluzz/Documents/projects/go/src/github.com/yetis-br/travelPlanning/rethinkdb_data/0f123b9f-e45e-4178-90fa-04b700b3d8f7
+2015-12-22T17:59:35.806853000 1285.985448s info: Table 0f123b9f-e45e-4178-90fa-04b700b3d8f7: Deleted the table.
+2015-12-22T17:59:39.849678000 1290.028409s info: Table e6968a2e-1250-4674-a466-0ab189c16b61: Added replica on this server.
+2015-12-22T17:59:41.447560000 1291.626358s info: Table e6968a2e-1250-4674-a466-0ab189c16b61: Starting a new Raft election for term 1.
+2015-12-22T17:59:41.458095000 1291.636893s info: Table e6968a2e-1250-4674-a466-0ab189c16b61: This server is Raft leader for term 1. Latest log index is 0.
+2015-12-22T18:00:53.612047000 1363.793532s notice: Server got SIGINT from pid 636, uid 501; shutting down...
+2015-12-22T18:00:53.612215000 1363.793699s notice: Shutting down client connections...
+2015-12-22T18:00:53.612603000 1363.794087s notice: All client connections closed.
+2015-12-22T18:00:53.612617000 1363.794100s notice: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+2015-12-22T18:00:53.617049000 1363.798533s notice: Storage engine shut down.
+2015-12-22T18:03:27.815700000 0.451692s notice: Running rethinkdb 2.2.2 (CLANG 4.2 (clang-425.0.28))...
+2015-12-22T18:03:27.820339000 0.456326s notice: Running on Darwin 15.0.0 x86_64
+2015-12-22T18:03:27.820372000 0.456358s notice: Loading data from directory /Users/andreluzz/Documents/projects/go/src/github.com/yetis-br/travelPlanning/rethinkdb_data
+2015-12-22T18:03:27.841079000 0.477066s info: Automatically using cache size of 4807 MB
+2015-12-22T18:03:27.842226000 0.478212s notice: Listening for intracluster connections on port 29015
+2015-12-22T18:03:27.857736000 0.493723s notice: Listening for client driver connections on port 28015
+2015-12-22T18:03:27.857904000 0.493890s notice: Listening for administrative HTTP connections on port 8080
+2015-12-22T18:03:27.857905000 0.493892s notice: Listening on addresses: 127.0.0.1, ::1
+2015-12-22T18:03:27.857906000 0.493892s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2015-12-22T18:03:27.857907000 0.493893s notice: Server ready, "Andres_MacBook_Pro_local_uk6" ce05b7ed-03cc-4247-ac8c-3e7846361003
+2015-12-22T18:03:29.805906000 2.441961s info: Table e6968a2e-1250-4674-a466-0ab189c16b61: Starting a new Raft election for term 2.
+2015-12-22T18:03:29.817134000 2.453189s info: Table e6968a2e-1250-4674-a466-0ab189c16b61: This server is Raft leader for term 2. Latest log index is 3.
