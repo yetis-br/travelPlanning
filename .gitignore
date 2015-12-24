@@ -30,3 +30,7 @@ config.ini
 
 # Remover o binario criando no mac os a partir do go build
 travelPlanning
+
+rethinkdb_data/log_file
+
+rethinkdb_data/metadata

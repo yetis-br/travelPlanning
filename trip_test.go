@@ -36,9 +36,9 @@ var _ = Describe("Trip API", func() {
 			tripInput := models.Trip{}
 			tripInput.Title = "Europa 2017"
 
-			It("Return 200 Status", func() {
+			It("Return 201 Status", func() {
 				APIRequest("/trips", "POST", tripInput, token)
-				Expect(Response.Code).To(Equal(200))
+				Expect(Response.Code).To(Equal(201))
 			})
 			It("Return one record", func() {
 				tripOutput := models.Trip{}
@@ -57,6 +57,38 @@ var _ = Describe("Trip API", func() {
 				tripOutput := models.Trip{}
 				json.Unmarshal(Response.Body.Bytes(), &tripOutput)
 				Expect("Europa 2017").To(Equal(tripOutput.Title))
+			})
+		})
+
+		Context("When adding a new trip place", func() {
+			places := []models.TripPlace{
+				{ID: "00000001", Status: "active", Order: 0},
+				{ID: "00000002", Status: "active", Order: 1},
+				{ID: "00000003", Status: "active", Order: 2},
+				{ID: "00000004", Status: "active", Order: 3},
+			}
+
+			It("Return 200 Status", func() {
+				APIRequest("/trips/"+id+"/updatePlaces", "PATCH", places, token)
+				Expect(Response.Code).To(Equal(200))
+			})
+			It("Return four places", func() {
+				tripOutput := models.Trip{}
+				json.Unmarshal(Response.Body.Bytes(), &tripOutput)
+				Expect(4).To(Equal(tripOutput.TotalPlaces))
+			})
+		})
+
+		Context("When delete a trip place", func() {
+			It("Return 200 Status", func() {
+				APIRequest("/trips/"+id+"/deletePlace/3", "DELETE", nil, token)
+				Expect(Response.Code).To(Equal(200))
+			})
+			It("Return four places", func() {
+				tripOutput := models.Trip{}
+				APIRequest("/trips/"+id, "GET", nil, token)
+				json.Unmarshal(Response.Body.Bytes(), &tripOutput)
+				Expect(3).To(Equal(tripOutput.TotalPlaces))
 			})
 		})
 	})

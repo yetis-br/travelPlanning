@@ -1,8 +1,7 @@
 package main
 
 import (
-	"log"
-
+	log "github.com/Sirupsen/logrus"
 	"github.com/StephanDollberg/go-json-rest-middleware-jwt"
 	"github.com/ant0ine/go-json-rest/rest"
 	r "github.com/dancannon/gorethink"
@@ -22,6 +21,8 @@ func NewRouter(jwtmiddleware *jwt.JWTMiddleware, session *r.Session) rest.App {
 		rest.Get("/trips", trips.GetAllTrips),
 		rest.Get("/trips/:id", trips.GetTrip),
 		rest.Post("/trips", trips.PostTrip),
+		rest.Patch("/trips/:id/updatePlaces", trips.UpdateTripPlaces),
+		rest.Delete("/trips/:id/deletePlace/:place", trips.DeleteTripPlaces),
 	)
 	if err != nil {
 		log.Fatal(err)

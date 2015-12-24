@@ -27,7 +27,8 @@ func NewDBSession(database string) *r.Session {
 		log.Info(status)
 	}
 
-	tables := []string{"Trip"}
+	tables := []string{"Trip", "Place", "User"}
+
 	total, err := createTables(database, tables, conn)
 	if err != nil {
 		log.Fatalln(err)
